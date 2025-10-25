@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpliEMI - Bank Loan EMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fixed Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="logo">💰</div>
+                <div class="brand-text">
+                    <h1>SIMPLIEMI</h1>
+                    <p>Simplify Your Loan Planning</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#loans">Loans</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Landing Page Section -->
+    <section class="landing" id="home">
+        <div class="landing-content">
+            <h2>Plan Your Loan with Confidence</h2>
+            <p>Calculate your EMI instantly and make informed financial decisions. Get accurate loan estimates in seconds!</p>
+            <a href="#calculator" class="cta-button">Calculate EMI</a>
+        </div>
+    </section>
+
+    <!-- EMI Calculator Section -->
+    <section class="calculator-section" id="calculator">
+        <div class="calculator-container">
+            <h2>Bank Loan EMI Calculator</h2>
+            <p class="subtitle">Calculate your Equated Monthly Installment instantly</p>
+            
+            <div class="calculator-grid">
+                <!-- Input Form -->
+                <div class="input-section">
+                    <div class="form-group">
+                        <label for="loanAmount">Loan Amount (₹)</label>
+                        <input type="number" id="loanAmount" placeholder="e.g., 500000" min="10000" step="10000" value="500000" oninput="calculateEMI()">
+                        <span class="helper-text">Principal amount you want to borrow</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interestRate">Annual Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="e.g., 8.5" min="1" max="30" step="0.1" value="8.5" oninput="calculateEMI()">
+                        <span class="helper-text">Interest rate per annum</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tenureYears">Loan Tenure (Years)</label>
+                        <input type="number" id="tenureYears" placeholder="e.g., 5" min="1" max="30" value="5" oninput="calculateEMI()">
+                        <span class="helper-text">Duration of the loan in years</span>
+                    </div>
+
+                    <div class="formula-box">
+                        <h4>EMI Formula Used:</h4>
+                        <div class="formula">
+                            <p><strong>EMI = [P × R × (1 + R)ᴺ] / [(1 + R)ᴺ - 1]</strong></p>
+                            <p class="formula-desc">Where:</p>
+                            <ul>
+                                <li><strong>P</strong> = Loan Amount</li>
+                                <li><strong>R</strong> = Monthly Interest Rate (Annual Rate / 12 / 100)</li>
+                                <li><strong>N</strong> = Tenure in Months (Years × 12)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Section -->
+                <div class="result-section">
+                    <div class="emi-result">
+                        <h3>Your Monthly EMI</h3>
+                        <div class="emi-amount" id="emiAmount">₹0</div>
+                    </div>
+
+                    <div class="breakdown">
+                        <h4>Payment Breakdown</h4>
+                        
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">
+                                <span class="icon">💵</span>
+                                <span>Loan Amount</span>
+                            </div>
+                            <div class="breakdown-value" id="displayLoan">₹0</div>
+                        </div>
+
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">
+                                <span class="icon">📊</span>
+                                <span>Total Interest</span>
+                            </div>
+                            <div class="breakdown-value interest" id="totalInterest">₹0</div>
+                        </div>
+
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">
+                                <span class="icon">💰</span>
+                                <span>Total Amount Payable</span>
+                            </div>
+                            <div class="breakdown-value total" id="totalAmount">₹0</div>
+                        </div>
+
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">
+                                <span class="icon">📅</span>
+                                <span>Total Months</span>
+                            </div>
+                            <div class="breakdown-value" id="totalMonths">0</div>
+                        </div>
+                    </div>
+
+                    <div class="chart-placeholder">
+                        <div class="chart-info">
+                            <div class="chart-item principal">
+                                <span class="color-box principal-color"></span>
+                                <span>Principal: <strong id="chartPrincipal">0%</strong></span>
+                            </div>
+                            <div class="chart-item interest">
+                                <span class="color-box interest-color"></span>
+                                <span>Interest: <strong id="chartInterest">0%</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SimpliEMI. All rights reserved. | Your Financial Planning Partner 💼</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

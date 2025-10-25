@@ -1,0 +1,448 @@
+/* SimpliEMI - Bank Loan EMI Calculator - CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    color: #333;
+}
+
+/* Header & Navigation */
+header {
+    background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.3);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 30px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 2.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.brand-text h1 {
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+}
+
+.brand-text p {
+    font-size: 0.85rem;
+    color: #bbdefb;
+    font-style: italic;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+nav ul li a:focus {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+/* Landing Section */
+.landing {
+    margin-top: 100px;
+    height: 500px;
+    background: linear-gradient(rgba(13, 71, 161, 0.7), rgba(25, 118, 210, 0.7)), 
+                url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.landing-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+    animation: fadeInDown 1s ease;
+}
+
+.landing-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-button {
+    background: white;
+    color: #0d47a1;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.cta-button:focus {
+    outline: 3px solid white;
+    outline-offset: 4px;
+}
+
+/* Calculator Section */
+.calculator-section {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.calculator-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(13, 71, 161, 0.2);
+}
+
+.calculator-container h2 {
+    color: #0d47a1;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Input Section */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+    font-size: 1rem;
+}
+
+.form-group input {
+    padding: 14px 16px;
+    border: 2px solid #bbdefb;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group input:hover {
+    border-color: #64b5f6;
+}
+
+.helper-text {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: #777;
+    font-style: italic;
+}
+
+/* Formula Box */
+.formula-box {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #64b5f6;
+    margin-top: 10px;
+}
+
+.formula-box h4 {
+    color: #0d47a1;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.formula p {
+    color: #1565c0;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.formula-desc {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.formula ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.formula ul li {
+    color: #555;
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* Result Section */
+.result-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.emi-result {
+    background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 25px rgba(13, 71, 161, 0.3);
+}
+
+.emi-result h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.emi-amount {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Breakdown */
+.breakdown {
+    background: #f5f5f5;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+}
+
+.breakdown h4 {
+    color: #0d47a1;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.breakdown-item:last-child {
+    border-bottom: none;
+}
+
+.breakdown-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.icon {
+    font-size: 1.3rem;
+}
+
+.breakdown-value {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.breakdown-value.interest {
+    color: #f57c00;
+}
+
+.breakdown-value.total {
+    color: #0d47a1;
+    font-size: 1.3rem;
+}
+
+/* Chart Placeholder */
+.chart-placeholder {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #bbdefb;
+}
+
+.chart-info {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.chart-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.principal-color {
+    background: #1976d2;
+}
+
+.interest-color {
+    background: #f57c00;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .calculator-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .landing-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .calculator-container {
+        padding: 25px;
+    }
+
+    .emi-amount {
+        font-size: 2.5rem;
+    }
+}
